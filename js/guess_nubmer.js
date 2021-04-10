@@ -4,11 +4,30 @@
 // Программа может задавать пользователю вопросы:
 // Число равно ...? / Число больше ...? / Число меньше ...? и в зависимоти от ответа пользователя принимать решения.
 // Вместо текстовых ответов ДА/НЕТ, можно использовать числа 0 - НЕТ и 1 - ДА
-let st = 0, f = 100, input, answ;
-let guessed;
+let st = 5, f = 100, input, answ;
+
 while (true) {
-  input = parseInt(prompt('Введите целое число от 1 до 100'));
-  if (input>=st || input<=f)     break;
-  alert("Введите корректное число");
+  input = parseInt(prompt('Введите целое число от '+st+' до '+f));
+  if (input>=st && input<=f)     break;
+  // alert("Введите корректное число");
 }
-//
+let x = Math.floor(f/2);
+while (f-st>1) {
+  console.log(st,f, f-st+1);
+   answ = parseInt(prompt('Число больше '+x+'? (0 - НЕТ и 1 - ДА)'));
+   if (answ===1) {
+  // if (input>x) {
+    st = x+1;
+    // f = f;
+    x = Math.floor((f-x)/2)+st;
+  // } else  {
+  } else if(answ===0){
+    // st = st;
+    f = x;
+    x = st+Math.floor((x-st)/2);
+  // }
+  } else {
+    break;
+  }
+}
+   console.log('Ваше чиcло '+st)
