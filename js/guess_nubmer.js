@@ -30,4 +30,8 @@ while (f-st>1) {
     break;
   }
 }
+if(st!=f){
+  answ = parseInt(prompt('Ваше чиcло '+st+'? (0 - НЕТ и 1 - ДА)'));
+  st = answ===0?f:st;
+}
    console.log('Ваше чиcло '+st)
