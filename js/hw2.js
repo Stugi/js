@@ -26,7 +26,11 @@ switch (sw) {
     console.log(a1*a2);
     break;
   case 9://  /
-    console.log(a1/a2);
+    if (a2 !== 0) {
+      console.log(a1/a2);
+    } else {
+      console.log('На ноль делить нельзя!');
+    }
     break;
   default:
     console.log('Ошибка ввода третьего числа, введите одно из трех чисел: 3-для сложения'+
