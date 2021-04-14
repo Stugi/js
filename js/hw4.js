@@ -54,11 +54,34 @@ function range(start, end, step=1){
 // (переменное количество аргументов).
 // Определить по 5ти бальной шкале, как часто в тексте встречается спам.
 // Результат вернуть из функции.
+
 function findIndexSpam(text, ...words){
-// в работе
+  const max = 5;
+if (!words) {
+  return max;
+} else {
+    let countWords = countWordsInStr(text); //100
+    let countSpam = words.length; //x
+    let x = countSpam*100/countWords;
+    return max - max*x/100;
+  }
+}
+
+function countWordsInStr(str) {
+         str = str.replace(/(^\s*)|(\s*$)/gi,"");
+         str = str.replace(/[ ]{2,}/gi," ");
+         str = str.replace(/\n /,"\n");
+         return str.split(' ').length;
+}
 
 
-
+// переменное количество аргументов
+function getAverage(...nums){
+    let sum = 0;
+    for (let n of nums) {
+        sum += n;
+    }
+    return sum / nums.length;
 }
 
 // 4. На методы массивов (functions-2)
@@ -69,9 +92,7 @@ function findIndexSpam(text, ...words){
             [56, -9, 111, 6],
             [11, 86, -12],
         ];
-console.log(getPositiveElem(numsArr));
-console.log(arrayElemPlusTen(numsArr));
-console.log(getPositiveElem(numsArr));
+
 // 1. Увеличить каждый элемент массива на 10
 function arrayElemPlusTen(array){
   for (var i = 0; i < array.length; i++) {
