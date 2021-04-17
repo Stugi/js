@@ -38,3 +38,7 @@ function checkSpam(text, ...spam){
 numsArr.forEach((el1, in1, ar)=>{ar.forEach((elem, index, arr)=>{arr[in1][index]+=10})});
 
 //  2. Создать массив, в который войдут положительные элементы numsArr
+let posArray = [];//numsArr.filter(arr =>{arr.filter(elem => elem>0)});
+for (var el of numsArr) {
+  posArray=posArray.concat(el.filter(elem => elem>0));
+}
