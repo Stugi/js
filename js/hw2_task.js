@@ -1,3 +1,4 @@
+'use strict'
 let min = 0, max=100, tmp, asw;
 alert('загадайте число от 0 до 100');
 while (true) {
