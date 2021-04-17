@@ -26,7 +26,7 @@ console.log(isPolidrom("fafaf"));
 console.log(isPolidrom("а роза упала на лапу Азора"));
 function isPolidrom(str){
   str = str.replaceAll(" ","").toLowerCase();
-  for(let i = 0; i<str.length-1/2; i++){
+  for(let i = 0; i<str.length/2; i++){
     if(str[i]!=str[str.length-i-1]) return false;
   }
 return true;
