@@ -21,9 +21,7 @@ function getCountSubstr(str, word){
 // 3. Написать функцию, которая принимает на вход строку и возвращает true, если функция является полиндромом и false, если нет.
 // Палиндром — это число, буквосочетание, слово или текст, которые одинаково читаются по буквам или по словам как слева направо, так и справа налево.
 // Например, 202 - палиндром / fafaf - палиндром / а роза упала на лапу Азора - палиндром.
-console.log(isPolidrom("202"));
-console.log(isPolidrom("fafaf"));
-console.log(isPolidrom("а роза упала на лапу Азора"));
+
 function isPolidrom(str){
   str = str.replaceAll(" ","").toLowerCase();
   for(let i = 0; i<str.length/2; i++){
