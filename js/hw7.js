@@ -105,7 +105,7 @@ function createArrayBooksByAuthor(allbooks, author){
   return allbooks.filter(b=>b.author===author);
 }
 // 4
-function sortBooks(allbooks, orderBy){
+function sortBooks(allbooks, orderBy="title"){
   allbooks.sort((b1,b2)=>b1[orderBy]<b2[orderBy]?-1:(b1[orderBy]>b2[orderBy]?1:0));
 }
 console.log(createArrayBooksByAuthor(books, "Лермонтов"));
