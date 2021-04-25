@@ -9,7 +9,7 @@ function generateField(n, data){
   let field = document.createElement("div");
   field.style.cssText =
     "margin: 0 auto;"+//'элемент поцентру'
-    "width: 60vw;"+
+    "width: 50vw;"+
     "display: flex;" +
     "flex-wrap: wrap;";
 // создание одной ячейки
@@ -17,8 +17,8 @@ function generateField(n, data){
     for(let i = 0; i <  n * n; i++){
       let cell = document.createElement("div");
       cell.style.border = "1px solid black";
-      cell.style.width = cell.style.height = 60/n + "vw";
-       cell.style.boxSizing  = "border-box";
+      cell.style.width = cell.style.height = 50/n + "vw";
+      cell.style.boxSizing  = "border-box";
       field.append(cell);
     }
     addRandomData(field, data);
