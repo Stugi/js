@@ -1,8 +1,8 @@
 'use sctrict'
 
 document.body.append(
-    // generateField(10, getPrises()),
-    generateCart(getCats())
+    generateCart(getCats()),
+    generateField(3, getPrises())
 );
 
 document.body.style.background= "linear-gradient(90deg, #f8ff00 0%, #3ad59f 100%)";
@@ -37,7 +37,7 @@ function generateField(n, data){
   n = n>=3?n:3;
   let field = document.createElement("div");
   field.style.cssText =
-    "margin: 0 auto;"+//'элемент поцентру'
+    "margin: 2rem auto;"+//'элемент поцентру'
     "width: 50vw;"+
     "display: flex;" +
     "flex-wrap: wrap;";
