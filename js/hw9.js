@@ -1,8 +1,37 @@
 'use sctrict'
 
 document.body.append(
-    generateField(2, getPrises())
+    // generateField(10, getPrises()),
+    generateCart(getCats())
 );
+
+document.body.style.background= "linear-gradient(90deg, #f8ff00 0%, #3ad59f 100%)";
+
+function generateCart(arr){
+  let section = document.createElement("section");
+  section.classList.add("cats");
+  arr.map( el =>{
+    let div = document.createElement("div");
+    div.classList.add("col-3");
+    let catDiv = document.createElement("div");
+    div.append(catDiv);
+    catDiv.classList.add("cat");
+    let name = document.createElement("h3");
+    name.innerText = el.name;
+    let age = document.createElement("p");
+    age.innerText = typeof el.age==='string'?el.age:el.age+" года";
+    let color = document.createElement("p");
+    color.innerText = el.color;
+    let info = document.createElement("div");
+    info.innerHTML = `${el["additional_info"]["vaccinations"]?"<span> Есть прививки.<span>":""}
+                      ${el["additional_info"]["vaccinations"]?"<span> Есть паспорт.<span>":""}
+                      `;
+    catDiv.append(name, age, color, info);
+    section.append(div);
+  });
+
+  return section;
+}
 
 function generateField(n, data){
   n = n>=3?n:3;

@@ -1,0 +1,20 @@
+@import "flex-grid.css";
+
+.cat{
+   background-color: #e7e9eb ;
+   padding: 10px;
+   margin: 6px;
+   box-sizing: border-box;
+   height: 100%;
+
+   border-radius: 1rem;
+   border: 0.5rem solid white;
+
+
+}
+
+.cats{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
