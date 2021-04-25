@@ -1,42 +1,33 @@
 'use script'
-let createHws = function () {
-    task2(getArticles(), "task2_a");
-    task2(getGoods(), "task2_g");
-};
-createHws();
-function task2(obj, idSection){
-  // check obj??
-  let section = generateSection(idSection);
-  let table = generateTable(obj);
-  section.append(table);
-  document.querySelector("main").append(section);
-}
 
-
+document.body.append(
+  generateTable(getArticles()),
+  generateTable(getGoods())
+);
 
 function generateTable(arrObj){
    let table = document.createElement("table");
    table.classList.add("cinereousTable");
 
-  let columns = [];
-  arrObj.map(el=>{
-    Object.keys(el).map(key=>{ if(!columns.includes(key)) columns.push(key);
-    });
-  });
-  let row_header = table.insertRow(0);
-  columns.forEach((item, index, array)=>{
-      let cell_header = row_header.insertCell(index);
-      cell_header.innerText = item;
-  });
-  arrObj.forEach((it, index, array)=>{
-        let row = table.insertRow(index+1);
-        columns.forEach((el,ind,arr)=>{
-          let cel = row.insertCell(ind);
-          cel.innerText = it[el]===undefined?"-":it[el];
-        });
-  });
+   let thead = document.createElement("thead");
+   let captionRow = document.createElement("tr");
+   table.append(thead);
+   thead.append(captionRow);
 
-
+   Object.keys(arrObj[0]).map(el=>{
+     let captionCell = document.createElement("th");
+     captionCell.innerText = el;
+     captionRow.append(captionCell);
+   });
+   let tbody = document.createElement("tbody");
+   table.append(tbody);
+   arrObj.map(el=>{
+     let row = tbody.insertRow();
+     Object.values(el).map(one=>{
+       let cell = row.insertCell();
+       cell.innerText = one;
+     });
+   });
   return table;
 }
 function generateSection(id){
@@ -50,7 +41,7 @@ function getArticles(){
       {
           id: 1,
           title: "JS",
-          // text: "Статья про JS",
+           text: "Статья про JS",
           author: "Александр"
       },
       {
